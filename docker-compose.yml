@@ -6,9 +6,8 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    command: "chrome:test"
     environment:
-      - BROWSER=chrome
+      - COMMAND=chrome:test
     volumes:
       - ./cypress/videos:/cypress-docker/cypress/videos
       - ./cypress/reports:/cypress-docker/cypress/reports
@@ -18,9 +17,8 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    command: "firefox:test"
     environment:
-      - BROWSER=firefox
+      - COMMAND=firefox:test
     volumes:
       - ./cypress/videos:/cypress-docker/cypress/videos
       - ./cypress/reports:/cypress-docker/cypress/reports
