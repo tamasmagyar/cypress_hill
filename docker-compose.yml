@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  cypress-chrome:
+    container_name: cypress-chrome
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: "chrome:test"
+    environment:
+      - BROWSER=chrome
+    volumes:
+      - ./cypress/videos:/cypress-docker/cypress/videos
+      - ./cypress/reports:/cypress-docker/cypress/reports
+
+  cypress-firefox:
+    container_name: cypress-firefox
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: "firefox:test"
+    environment:
+      - BROWSER=firefox
+    volumes:
+      - ./cypress/videos:/cypress-docker/cypress/videos
+      - ./cypress/reports:/cypress-docker/cypress/reports
