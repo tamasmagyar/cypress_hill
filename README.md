@@ -12,11 +12,11 @@ Reporting inspired by: [Mochawesome example on github](https://github.com/qaboxl
 
 # Tasks
 - [x] Nordic sea monster 404 in titles and filenames
-- [x] Dockerized
+- [x] Dockerized (docker folder + docker-compose.yml)
 - [x] Written in Cypress
-- [x] Cypress with additional frameworks
-- [x] Runs both on Firefox and Chrome
-- [x] Reporting
+- [x] Cypress with additional frameworks (cypress and mocha related reporting)
+- [x] Runs both on Firefox and Chrome (parallel)
+- [x] Reporting (based on mocha)
 - Tests
   - [x] Checked anchor links' response code
   - [x] Checked console errors
