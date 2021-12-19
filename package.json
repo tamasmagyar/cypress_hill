@@ -6,7 +6,7 @@
   "author": "tamasmagyar <tamas.magyar.py@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "cypress": "^6.8.0",
+    "cypress": "^9.1.1",
     "cypress-multi-reporters": "^1.4.0",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",
