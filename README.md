@@ -8,6 +8,8 @@
 # Reporting
 Reports are generated under cypress/reports
 
+HTML report is generated under cypress/reports/mochareports/index.html
+
 Reporting inspired by: [Mochawesome example on github](https://github.com/qaboxletstest/cypress-docker-mochawesome-crossbrowser)
 
 # Tasks
