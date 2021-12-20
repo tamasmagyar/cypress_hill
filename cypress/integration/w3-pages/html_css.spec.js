@@ -1,4 +1,7 @@
+const HTML_CSS_PAGE = 'https://www.w3.org/standards/webdesign/htmlcss'
+
 describe('html, css - ' + Cypress.browser.name, () => {
+
   afterEach(function onAfterEach() {
     if (this.currentTest.state === 'failed') {
       Cypress.runner.stop();
@@ -7,7 +10,7 @@ describe('html, css - ' + Cypress.browser.name, () => {
 
   it('html css page should return 200', () => {
     cy.request({
-      url: 'https://www.w3.org/standards/webdesign/htmlcss',
+      url: HTML_CSS_PAGE,
       followRedirect: true,
       failOnStatusCode: false,
     }).then((resp) => {
@@ -20,14 +23,14 @@ describe('html, css - ' + Cypress.browser.name, () => {
     Cypress.on('window:before:load', (win) => {
       windowErrorSpy = cy.spy(win.console, 'error'); 
     });
-    cy.visit('https://www.w3.org/standards/webdesign/htmlcss')
+    cy.visit(HTML_CSS_PAGE)
     cy.wait(1000).then(() => {
       expect(windowErrorSpy).to.not.be.called; 
     });
   })
 
   it('check if all the hrefs return 200', () => {
-    cy.visit('https://www.w3.org/standards/webdesign/htmlcss')
+    cy.visit(HTML_CSS_PAGE)
     cy.get('a').each(($anchorlink, index, list) => {
 
     // Skipping empty and mailto hrefs

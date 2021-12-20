@@ -1,8 +1,10 @@
+const BAD_PAGE_URL = 'https://www.w3.org/standards/badpage'
+
 describe('bad page - ' + Cypress.browser.name, () => {
 
   it('bad page should return 404', () => {
     cy.request({
-      url: 'https://www.w3.org/standards/badpage',
+      url: BAD_PAGE_URL,
       followRedirect: true,
       failOnStatusCode: false,
     }).then((resp) => {
@@ -16,7 +18,7 @@ describe('bad page - ' + Cypress.browser.name, () => {
       windowErrorSpy = cy.spy(win.console, 'error'); 
     });
     cy.visit({
-      url: 'https://www.w3.org/standards/badpage',
+      url: BAD_PAGE_URL,
       failOnStatusCode: false,
     })
     cy.wait(1000).then(() => {
@@ -26,13 +28,13 @@ describe('bad page - ' + Cypress.browser.name, () => {
 
   it('check if all the hrefs return 200', () => {
     cy.visit({
-      url: 'https://www.w3.org/standards/badpage',
+      url: BAD_PAGE_URL,
       failOnStatusCode: false,
     })
     cy.get('a').each(($anchorlink, index, list) => {
 
     // Skipping empty hrefs and the links on bad page
-    if ($anchorlink.prop('href') && !$anchorlink.prop('href').startsWith('https://www.w3.org/standards/badpage')){
+    if ($anchorlink.prop('href') && !$anchorlink.prop('href').startsWith(BAD_PAGE_URL)){
       cy.request({
         url: $anchorlink.prop('href'),
         followRedirect: true,
